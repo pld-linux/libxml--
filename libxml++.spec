@@ -1,12 +1,13 @@
 Summary:	C++ interface for working with XML files
 Summary(pl):	Interfejs C++ do pracy z plikami XML
 Name:		libxml++
-Version:	2.9.1
+Version:	2.9.2
 Release:	1
 License:	LGPL
 Group:		Libraries
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/libxml++/2.9/%{name}-%{version}.tar.bz2
-# Source0-md5:	f74db646f4f0c1ef9b957550f1b926d6
+# Source0-md5:	719ade88cce0c74ed01390cab23af274
+Source1:	insert_example_code.pl
 URL:		http://libxmlplusplus.sourceforge.net/
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -52,6 +53,7 @@ Biblioteka statyczna libxml++.
 %setup -q
 
 %build
+cp %{SOURCE1} docs/manual
 %{__libtoolize}
 %{__aclocal}
 %{__autoconf}
@@ -64,6 +66,12 @@ rm -rf $RPM_BUILD_ROOT
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
+
+install -d docs_install/{manual,reference}
+cp -R docs/manual/html/* docs_install/manual
+cp -R docs/reference/2.9/html/* docs_install/reference
+
+rm -r $RPM_BUILD_ROOT%{_docdir}/%{name}-2.6/docs/{manual,reference/2.9}/html
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -78,6 +86,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files devel
 %defattr(644,root,root,755)
+%doc docs_install/{manual,reference}
 %attr(755,root,root) %{_libdir}/lib*.so
 %{_libdir}/lib*.la
 %{_includedir}/*
