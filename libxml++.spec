@@ -10,10 +10,10 @@ Source0:	http://ftp.gnome.org/pub/GNOME/sources/libxml++/2.8/%{name}-%{version}.
 URL:		http://libxmlplusplus.sourceforge.net/
 BuildRequires:	autoconf
 BuildRequires:	automake
-BuildRequires:	glibmm-devel >= 2.4.1
+BuildRequires:	glibmm-devel >= 2.4.4
 BuildRequires:	libstdc++-devel
 BuildRequires:	libtool
-BuildRequires:	libxml2-devel >= 2.6.9
+BuildRequires:	libxml2-devel >= 2.6.13
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -27,7 +27,8 @@ Summary:	Header files for libxml++
 Summary(pl):	Pliki nag³ówkowe do libxml++
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
-Requires:	glibmm-devel >= 2.4.1
+Requires:	glibmm-devel >= 2.4.4
+Requires:	libxml2-devel >= 2.6.13
 
 %description devel
 Header files for libxml++.
