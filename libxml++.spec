@@ -1,12 +1,12 @@
 Summary:	C++ interface for working with XML files
 Summary(pl):	Interfejs C++ do pracy z plikami XML
 Name:		libxml++
-Version:	0.28.0
+Version:	1.0.0
 Release:	1
 License:	LGPL
 Group:		Libraries
 Source0:	http://dl.sourceforge.net/libxmlplusplus/%{name}-%{version}.tar.bz2
-# Source0-md5:	0fa5b581350dfbbab88ed436d1fdddf2
+# Source0-md5:	e208c3d923b331876da466fd45f1f81d
 URL:		http://libxmlplusplus.sourceforge.net/
 BuildRequires:	autoconf
 BuildRequires:	automake
