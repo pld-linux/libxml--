@@ -26,7 +26,7 @@ libxml++ jest interfejsem C++ do biblioteki libxml.
 Summary:	Header files for libxml++
 Summary(pl):	Pliki nag³ówkowe do libxml++
 Group:		Development/Libraries
-Requires:	%{name} = %{version}
+Requires:	%{name} = %{version}-%{release}
 Requires:	glibmm-devel >= 2.3.5
 
 %description devel
@@ -39,7 +39,7 @@ Pliki nag³ówkowe do libxml++.
 Summary:	Static libxml++ libraries
 Summary(pl):	Biblioteka statyczna libxml++
 Group:		Development/Libraries
-Requires:	%{name}-devel = %{version}
+Requires:	%{name}-devel = %{version}-%{release}
 
 %description static
 Static libxml++ libraries.
