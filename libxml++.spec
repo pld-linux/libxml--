@@ -6,6 +6,7 @@ Release:	1
 License:	LGPL
 Group:		Libraries
 Source0:	http://dl.sourceforge.net/libxmlplusplus/%{name}-%{version}.tar.gz
+# Source0-md5:	096c53bb75a146f7c5b2478eb51db2b8
 URL:		http://libxmlplusplus.sourceforge.net/
 BuildRequires:	libxml2-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
