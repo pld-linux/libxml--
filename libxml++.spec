@@ -14,6 +14,7 @@ BuildRequires:	glibmm-devel >= 2.4.1
 BuildRequires:	libstdc++-devel
 BuildRequires:	libtool
 BuildRequires:	libxml2-devel >= 2.6.9
+Obsoletes:	libxml++-devel <= 2.0.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
