@@ -8,6 +8,7 @@ Group:		Libraries
 Source0:	http://dl.sourceforge.net/libxmlplusplus/%{name}-%{version}.tar.bz2
 # Source0-md5:	b659953114c1f390d93a67ec1bfa66ea
 URL:		http://libxmlplusplus.sourceforge.net/
+BuildRequires:	libstdc++-devel
 BuildRequires:	libxml2-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -22,6 +23,7 @@ Summary:	Header files for libxml++
 Summary(pl):	Pliki nag³ówkowe do libxml++
 Group:		Development/Libraries
 Requires:	%{name} = %{version}
+Requires:	libstdc++-devel
 Requires:	libxml2-devel
 
 %description devel
