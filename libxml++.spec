@@ -1,19 +1,19 @@
 Summary:	C++ interface for working with XML files
 Summary(pl):	Interfejs C++ do pracy z plikami XML
 Name:		libxml++
-Version:	2.8.1
+Version:	2.10.0
 Release:	1
 License:	LGPL
 Group:		Libraries
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/libxml++/2.8/%{name}-%{version}.tar.bz2
-# Source0-md5:	da9cf1189f7f29e1fe1bc1c72d52b49c
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/libxml++/2.10/%{name}-%{version}.tar.bz2
+# Source0-md5:	1494b12a2cf5e337d7717af4557a7711
 URL:		http://libxmlplusplus.sourceforge.net/
 BuildRequires:	autoconf
 BuildRequires:	automake
-BuildRequires:	glibmm-devel >= 2.4.4
+BuildRequires:	glibmm-devel >= 2.6.1
 BuildRequires:	libstdc++-devel
 BuildRequires:	libtool
-BuildRequires:	libxml2-devel >= 2.6.13
+BuildRequires:	libxml2-devel >= 2.6.17
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -27,8 +27,8 @@ Summary:	Header files for libxml++
 Summary(pl):	Pliki nag³ówkowe do libxml++
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
-Requires:	glibmm-devel >= 2.4.4
-Requires:	libxml2-devel >= 2.6.13
+Requires:	glibmm-devel >= 2.6.1
+Requires:	libxml2-devel >= 2.6.17
 
 %description devel
 Header files for libxml++.
@@ -65,6 +65,12 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
+install -d docs_install/{manual,reference}
+cp -R docs/manual/html/* docs_install/manual
+cp -R docs/reference/2.10/html/* docs_install/reference
+
+rm -r $RPM_BUILD_ROOT%{_docdir}/%{name}-2.6/docs/{manual,reference/2.10}/html
+
 %clean
 rm -rf $RPM_BUILD_ROOT
 
@@ -78,6 +84,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files devel
 %defattr(644,root,root,755)
+%doc docs_install/{manual,reference}
 %attr(755,root,root) %{_libdir}/lib*.so
 %{_libdir}/lib*.la
 %{_includedir}/*
