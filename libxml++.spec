@@ -28,7 +28,7 @@ Summary:	Header files for libxml++
 Summary(pl):	Pliki nag³ówkowe do libxml++
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
-Requires:	glibmm-devel >= 2.13.3
+Requires:	glibmm-devel >= 2.11.3
 Requires:	libxml2-devel >= 1:2.6.26
 
 %description devel
