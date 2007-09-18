@@ -1,12 +1,13 @@
 Summary:	C++ interface for working with XML files
 Summary(pl.UTF-8):	Interfejs C++ do pracy z plikami XML
 Name:		libxml++
-Version:	2.18.2
+Version:	2.20.0
 Release:	1
 License:	LGPL
 Group:		Libraries
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/libxml++/2.18/%{name}-%{version}.tar.bz2
-# Source0-md5:	11ea24cad96b4465816e9a4eb2b0e2d2
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/libxml++/2.20/%{name}-%{version}.tar.bz2
+# Source0-md5:	4fe6ae1344e523ea4756733be71f9af3
+Patch0:		%{name}-examples.patch
 URL:		http://libxmlplusplus.sourceforge.net/
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -74,13 +75,15 @@ libxml++ - przykładowe programy.
 
 %prep
 %setup -q
+%patch0 -p1
 
 %build
 %{__libtoolize}
 %{__aclocal}
 %{__autoconf}
 %{__automake}
-%configure
+%configure \
+	--enable-api-exceptions
 %{__make}
 
 %install
@@ -92,9 +95,9 @@ install -d $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
 
 install -d docs_install/{manual,reference}
 cp -R docs/manual/html/* docs_install/manual
-cp -R docs/reference/2.18/html/* docs_install/reference
+cp -R docs/reference/2.*/html/* docs_install/reference
 
-rm -r $RPM_BUILD_ROOT%{_docdir}/%{name}-2.6/docs/{manual,reference/2.18}/html
+rm -r $RPM_BUILD_ROOT%{_docdir}/%{name}-2.6/docs/{manual,reference/2.*}/html
 
 # clean examples dir
 %{__make} -C examples clean
