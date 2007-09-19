@@ -3,7 +3,7 @@ Summary(pl.UTF-8):	Interfejs C++ do pracy z plikami XML
 Name:		libxml++
 Version:	2.20.0
 Release:	1
-License:	LGPL
+License:	LGPL v2.1
 Group:		Libraries
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/libxml++/2.20/%{name}-%{version}.tar.bz2
 # Source0-md5:	4fe6ae1344e523ea4756733be71f9af3
@@ -114,19 +114,19 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog NEWS README
-%attr(755,root,root) %{_libdir}/lib*.so.*.*
+%attr(755,root,root) %{_libdir}/libxml++-2.6.so.*.*.*
 
 %files devel
 %defattr(644,root,root,755)
-%attr(755,root,root) %{_libdir}/lib*.so
-%{_libdir}/lib*.la
+%attr(755,root,root) %{_libdir}/libxml++-2.6.so
+%{_libdir}/libxml++-2.6.la
 %{_libdir}/libxml++-2.6
-%{_includedir}/*
-%{_pkgconfigdir}/*
+%{_includedir}/libxml++-2.6
+%{_pkgconfigdir}/libxml++-2.6.pc
 
 %files static
 %defattr(644,root,root,755)
-%{_libdir}/lib*.a
+%{_libdir}/libxml++-2.6.a
 
 %files apidocs
 %defattr(644,root,root,755)
