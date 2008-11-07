@@ -1,12 +1,12 @@
 Summary:	C++ interface for working with XML files
 Summary(pl.UTF-8):	Interfejs C++ do pracy z plikami XML
 Name:		libxml++
-Version:	2.22.0
+Version:	2.24.0
 Release:	1
 License:	LGPL v2.1
 Group:		Libraries
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/libxml++/2.22/%{name}-%{version}.tar.bz2
-# Source0-md5:	9a9b3ba876fe212df3a73c5a97e9235a
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/libxml++/2.24/%{name}-%{version}.tar.bz2
+# Source0-md5:	195a6ee87537086165f7a6578eaf18b4
 Patch0:		%{name}-examples.patch
 URL:		http://libxmlplusplus.sourceforge.net/
 BuildRequires:	autoconf
@@ -96,9 +96,9 @@ install -d $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
 
 install -d docs_install/{manual,reference}
 cp -R docs/manual/html/* docs_install/manual
-cp -R docs/reference/2.*/html/* docs_install/reference
+cp -R docs/reference/html/* docs_install/reference
 
-rm -r $RPM_BUILD_ROOT%{_docdir}/%{name}-2.6/docs/{manual,reference/2.*}/html
+rm -r $RPM_BUILD_ROOT%{_docdir}/%{name}-2.6/docs/{manual,reference}/html
 
 # clean examples dir
 %{__make} -C examples clean
