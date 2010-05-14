@@ -13,6 +13,7 @@ BuildRequires:	automake
 BuildRequires:	glibmm-devel >= 2.12.7
 BuildRequires:	libtool
 BuildRequires:	libxml2-devel >= 1:2.6.28
+BuildRequires:	mm-common
 BuildRequires:	pkgconfig
 Requires:	glibmm >= 2.12.7
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
