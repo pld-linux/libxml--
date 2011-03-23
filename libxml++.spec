@@ -1,19 +1,19 @@
 Summary:	C++ interface for working with XML files
 Summary(pl.UTF-8):	Interfejs C++ do pracy z plikami XML
 Name:		libxml++
-Version:	2.30.1
+Version:	2.32.0
 Release:	1
 License:	LGPL v2.1
 Group:		Libraries
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/libxml++/2.30/%{name}-%{version}.tar.bz2
-# Source0-md5:	0de2bd8c38cf308983df7d531681da56
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/libxml++/2.32/%{name}-%{version}.tar.bz2
+# Source0-md5:	f25c032942653211311754608abf46a4
 URL:		http://libxmlplusplus.sourceforge.net/
-BuildRequires:	autoconf
-BuildRequires:	automake
+BuildRequires:	autoconf >= 2.59
+BuildRequires:	automake >= 1.11
 BuildRequires:	glibmm-devel >= 2.12.7
-BuildRequires:	libtool
+BuildRequires:	libtool >= 2.2.6
 BuildRequires:	libxml2-devel >= 1:2.6.28
-BuildRequires:	mm-common
+BuildRequires:	mm-common >= 0.8
 BuildRequires:	pkgconfig
 Requires:	glibmm >= 2.12.7
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -96,6 +96,8 @@ install -d $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
 
 cp -a examples/* $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
 
+%{__rm} $RPM_BUILD_ROOT%{_libdir}/libxml++-2.6.la
+
 %clean
 rm -rf $RPM_BUILD_ROOT
 
@@ -111,7 +113,6 @@ rm -rf $RPM_BUILD_ROOT
 %files devel
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_libdir}/libxml++-2.6.so
-%{_libdir}/libxml++-2.6.la
 %{_libdir}/libxml++-2.6
 %{_includedir}/libxml++-2.6
 %{_pkgconfigdir}/libxml++-2.6.pc
