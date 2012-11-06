@@ -1,21 +1,24 @@
 Summary:	C++ interface for working with XML files
 Summary(pl.UTF-8):	Interfejs C++ do pracy z plikami XML
 Name:		libxml++
-Version:	2.32.0
+Version:	2.36.0
 Release:	1
 License:	LGPL v2.1
 Group:		Libraries
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/libxml++/2.32/%{name}-%{version}.tar.bz2
-# Source0-md5:	f25c032942653211311754608abf46a4
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/libxml++/2.36/%{name}-%{version}.tar.xz
+# Source0-md5:	72838890c773f89ec701ba1a57cf0802
 URL:		http://libxmlplusplus.sourceforge.net/
 BuildRequires:	autoconf >= 2.59
-BuildRequires:	automake >= 1.11
-BuildRequires:	glibmm-devel >= 2.12.7
-BuildRequires:	libtool >= 2.2.6
-BuildRequires:	libxml2-devel >= 1:2.6.28
-BuildRequires:	mm-common >= 0.8
+BuildRequires:	automake >= 1:1.11
+BuildRequires:	glibmm-devel >= 2.32.0
+BuildRequires:	libtool >= 2:2.2.6
+BuildRequires:	libxml2-devel >= 1:2.7.3
+BuildRequires:	mm-common >= 0.9.3
 BuildRequires:	pkgconfig
-Requires:	glibmm >= 2.12.7
+BuildRequires:	tar >= 1:1.22
+BuildRequires:	xz
+Requires:	glibmm >= 2.32.0
+Requires:	libxml2 >= 1:2.7.3
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -29,8 +32,8 @@ Summary:	Header files for libxml++
 Summary(pl.UTF-8):	Pliki nagłówkowe do libxml++
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
-Requires:	glibmm-devel >= 2.12.7
-Requires:	libxml2-devel >= 1:2.6.28
+Requires:	glibmm-devel >= 2.32.0
+Requires:	libxml2-devel >= 1:2.7.3
 
 %description devel
 Header files for libxml++.
