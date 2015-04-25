@@ -1,19 +1,19 @@
 Summary:	C++ interface for working with XML files
 Summary(pl.UTF-8):	Interfejs C++ do pracy z plikami XML
 Name:		libxml++
-Version:	2.36.0
-Release:	4
+Version:	2.38.0
+Release:	1
 License:	LGPL v2.1
 Group:		Libraries
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/libxml++/2.36/%{name}-%{version}.tar.xz
-# Source0-md5:	72838890c773f89ec701ba1a57cf0802
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/libxml++/2.38/%{name}-%{version}.tar.xz
+# Source0-md5:	36c2c7a8b7a09aa2118c70a0d51bf4b1
 URL:		http://libxmlplusplus.sourceforge.net/
 BuildRequires:	autoconf >= 2.59
 BuildRequires:	automake >= 1:1.11
 BuildRequires:	glibmm-devel >= 2.32.0
 BuildRequires:	libtool >= 2:2.2.6
 BuildRequires:	libxml2-devel >= 1:2.7.3
-BuildRequires:	mm-common >= 0.9.3
+BuildRequires:	mm-common >= 0.9.7
 BuildRequires:	pkgconfig
 BuildRequires:	tar >= 1:1.22
 BuildRequires:	xz
