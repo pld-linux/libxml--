@@ -1,12 +1,16 @@
+#
+# Conditional build:
+%bcond_without	static_libs	# static library
+#
 Summary:	C++ interface for working with XML files
 Summary(pl.UTF-8):	Interfejs C++ do pracy z plikami XML
 Name:		libxml++
-Version:	2.40.1
+Version:	3.0.0
 Release:	1
 License:	LGPL v2.1
 Group:		Libraries
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/libxml++/2.40/%{name}-%{version}.tar.xz
-# Source0-md5:	377a87bea899f2b4ff62df2418c3d8a6
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/libxml++/3.0/%{name}-%{version}.tar.xz
+# Source0-md5:	68a65acac7d21eec326a5ccf9144f748
 URL:		http://libxmlplusplus.sourceforge.net/
 BuildRequires:	autoconf >= 2.59
 BuildRequires:	automake >= 1:1.11
@@ -86,8 +90,7 @@ libxml++ - przykładowe programy.
 
 %build
 %configure \
-	--enable-api-exceptions \
-	--enable-static
+	%{?with_static_libs:--enable-static}
 %{__make}
 
 %install
@@ -99,7 +102,7 @@ install -d $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
 
 cp -a examples/* $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
 
-%{__rm} $RPM_BUILD_ROOT%{_libdir}/libxml++-2.6.la
+%{__rm} $RPM_BUILD_ROOT%{_libdir}/libxml++-3.0.la
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -110,24 +113,26 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog NEWS README
-%attr(755,root,root) %{_libdir}/libxml++-2.6.so.*.*.*
-%attr(755,root,root) %ghost %{_libdir}/libxml++-2.6.so.2
+%attr(755,root,root) %{_libdir}/libxml++-3.0.so.*.*.*
+%attr(755,root,root) %ghost %{_libdir}/libxml++-3.0.so.1
 
 %files devel
 %defattr(644,root,root,755)
-%attr(755,root,root) %{_libdir}/libxml++-2.6.so
-%{_libdir}/libxml++-2.6
-%{_includedir}/libxml++-2.6
-%{_pkgconfigdir}/libxml++-2.6.pc
+%attr(755,root,root) %{_libdir}/libxml++-3.0.so
+%{_libdir}/libxml++-3.0
+%{_includedir}/libxml++-3.0
+%{_pkgconfigdir}/libxml++-3.0.pc
 
+%if %{with static_libs}
 %files static
 %defattr(644,root,root,755)
-%{_libdir}/libxml++-2.6.a
+%{_libdir}/libxml++-3.0.a
+%endif
 
 %files apidocs
 %defattr(644,root,root,755)
-%{_datadir}/devhelp/books/libxml++-2.6
-%{_docdir}/%{name}-2.6
+%{_datadir}/devhelp/books/libxml++-3.0
+%{_docdir}/libxml++-3.0
 
 %files examples
 %defattr(644,root,root,755)
