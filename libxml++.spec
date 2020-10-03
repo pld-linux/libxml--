@@ -5,21 +5,23 @@
 Summary:	C++ interface for working with XML files
 Summary(pl.UTF-8):	Interfejs C++ do pracy z plikami XML
 Name:		libxml++
-Version:	3.2.0
+Version:	3.2.2
 Release:	1
 License:	LGPL v2.1
 Group:		Libraries
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/libxml++/3.2/%{name}-%{version}.tar.xz
-# Source0-md5:	c22a62cebbbb3b360ef4ddbe259a44b7
+# Source0-md5:	02228e5a9915d1d75d8a01a0b717f5a8
 URL:		http://libxmlplusplus.sourceforge.net/
 BuildRequires:	autoconf >= 2.59
 BuildRequires:	automake >= 1:1.11
+BuildRequires:	doxygen >= 1:1.8.9
 BuildRequires:	glibmm-devel >= 2.32.0
-BuildRequires:	libstdc++-devel >= 6:4.6
+BuildRequires:	libstdc++-devel >= 6:4.7
 BuildRequires:	libtool >= 2:2.2.6
 BuildRequires:	libxml2-devel >= 1:2.7.7
 BuildRequires:	mm-common >= 0.9.10
 BuildRequires:	pkgconfig
+BuildRequires:	rpmbuild(macros) >= 1.752
 BuildRequires:	tar >= 1:1.22
 BuildRequires:	xz
 Requires:	glibmm >= 2.32.0
@@ -38,7 +40,7 @@ Summary(pl.UTF-8):	Pliki nagłówkowe do libxml++
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	glibmm-devel >= 2.32.0
-Requires:	libstdc++-devel >= 6:4.6
+Requires:	libstdc++-devel >= 6:4.7
 Requires:	libxml2-devel >= 1:2.7.7
 
 %description devel
@@ -63,9 +65,7 @@ Biblioteka statyczna libxml++.
 Summary:	libxml++ API documentation
 Summary(pl.UTF-8):	Dokumentacja API libxml++
 Group:		Documentation
-%if "%{_rpmversion}" >= "5"
-BuildArch:	noarch
-%endif
+%{?noarchpackage}
 
 %description apidocs
 libxml++ API documentation.
@@ -89,6 +89,12 @@ libxml++ - przykładowe programy.
 %setup -q
 
 %build
+mm-common-prepare --copy --force
+%{__libtoolize}
+%{__aclocal} -I build
+%{__autoconf}
+%{__autoheader}
+%{__automake}
 %configure \
 	%{?with_static_libs:--enable-static} \
 	--disable-silent-rules
